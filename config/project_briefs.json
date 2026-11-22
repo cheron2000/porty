@@ -1,0 +1,34 @@
+{
+  "Projects": {
+    "known_context": "Repository name only; no confirmed product scope is available.",
+    "instruction": "Treat portfolio/workspace/monorepo interpretations as hypotheses. Decide whether this is a project index, umbrella monorepo, or standalone product. Require project inventory, intended users, ownership, status, and purpose before implementation."
+  },
+  "shreyash": {
+    "known_context": "Personal-name repository; no confirmed application scope is available.",
+    "instruction": "Confirm whether this is a personal profile, developer portfolio, or personal website. If it is a portfolio, plan accessible responsive sections for introduction, skills, verified projects, experience, education, contact, and links. Do not invent biography or achievements."
+  },
+  "uberclone": {
+    "known_context": "The name suggests a ride-hailing application, but no implementation requirements are confirmed.",
+    "instruction": "Prepare discovery and staged plans for rider, driver, and admin workflows. Clarify booking lifecycle, geography, fares, maps/geocoding, driver location updates, payments, notifications, cancellation/refunds, safety, and legal constraints. Finalize APIs and data models only after decisions."
+  },
+  "Gramausam_Ai": {
+    "known_context": "The name suggests an agriculture/weather AI project. Prior discussions referenced a Farmer Weather Advisor with crop impact, irrigation recommendations, pest alerts, and soil assessment; confirm whether this is the same project.",
+    "instruction": "If confirmed as the Farmer Weather Advisor, define farmer personas, crops/regions, weather source, forecast horizon, crop-stage inputs, advisory rules, uncertainty, multilingual UX, and expert escalation. Separate deterministic agronomic rules from LLM explanations. Include source attribution, stale-data handling, safety messaging, and domain-reviewed evaluation."
+  },
+  "-web": {
+    "known_context": "Repository name is ambiguous; no product scope is confirmed.",
+    "instruction": "Do not infer the product. Start with discovery: target users, problem, user journeys, pages, API/backend, authentication, storage, integrations, deployment, accessibility, and success criteria. Mark all possible interpretations as questions, not facts."
+  },
+  "RevenueMate": {
+    "known_context": "Prior discussions referenced a RevenueMate service at revenuemate.onrender.com, but the product purpose and current requirements have not been verified.",
+    "instruction": "Confirm the deployed product's purpose. Define target customer, revenue sources, transaction ingestion, metrics, reporting periods, forecasting assumptions, roles, privacy, integrations, and alerting. Separate actuals from estimates and ensure validation and auditability."
+  },
+  "portfolio": {
+    "known_context": "Repository name suggests a portfolio, but design and content requirements are not confirmed.",
+    "instruction": "Confirm owner identity and audience. Plan a responsive accessible portfolio with profile, selected projects, skills, experience/education, contact, and optional writing. Use verified content only. Define visual direction, performance budget, SEO metadata, privacy/analytics, deployment, and content updates."
+  },
+  "porty": {
+    "known_context": "Porty is the repository context agent itself.",
+    "instruction": "Maintain a safe, repeatable GitHub workflow that inspects recursive repository trees and actual source code, produces one evidence-based Markdown context window per repository, and writes detailed implementation briefs for empty repositories. Never modify source repositories; only commit generated reports to Porty."
+  }
+}
