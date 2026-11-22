@@ -37,12 +37,12 @@ def get(url, token):
 def list_repos(owner, token, include_archived):
     out, page = [], 1
     while True:
-        batch = get(f"/users/{urllib.parse.quote(owner)}/repos?type=owner&per_page=100&page={page}&sort=updated", token)
+        batch = get(f"/user/repos?affiliation=owner&per_page=100&page={page}&sort=updated", token)
         if not batch: break
         out.extend(batch)
         if len(batch) < 100: break
         page += 1
-    return [r for r in out if include_archived or not r.get("archived")]
+    return [r for r in out if r.get("owner", {}).get("login", "").lower() == owner.lower() and (include_archived or not r.get("archived"))]
 
 def tree_for(repo, token):
     full, branch = repo["full_name"], repo.get("default_branch") or "main"
