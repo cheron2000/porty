@@ -1,0 +1,60 @@
+name: Build repository context windows
+
+on:
+  workflow_dispatch:
+    inputs:
+      owner:
+        description: GitHub account whose repositories should be analyzed
+        required: true
+        default: cheron2000
+        type: string
+      include_archived:
+        description: Include archived repositories
+        required: true
+        default: false
+        type: boolean
+  schedule:
+    - cron: "17 2 * * 1"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: repository-context-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Check out Porty
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Analyze repositories and generate Markdown
+        env:
+          GITHUB_TOKEN: ${{ secrets.REPO_AUDIT_TOKEN }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: ${{ vars.OPENAI_MODEL || 'gpt-5' }}
+          GITHUB_OWNER: ${{ inputs.owner || 'cheron2000' }}
+          INCLUDE_ARCHIVED: ${{ inputs.include_archived || 'false' }}
+        run: python scripts/repository_context_agent.py --output contexts
+      - name: Commit generated context windows
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add contexts/
+          if git diff --cached --quiet; then
+            echo "No context changes to commit."
+          else
+            git commit -m "docs: refresh repository context windows"
+            git push
+          fi
