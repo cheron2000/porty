@@ -22,3 +22,4 @@ Generated: 2026-11-23
 - [cheron2000__medtracker](cheron2000__medtracker.md) — React/Vite medication tracker with Express/PostgreSQL/JWT backend; browser-only reminders despite planned BullMQ/web-push, plus timezone, deduplication, and validation gaps documented.
 - [cheron2000__TimeTableExtractor](cheron2000__TimeTableExtractor.md) — FastAPI/openpyxl Excel timetable parser with static frontend; XSS, unauthenticated session/cache APIs, upload limits, and lab-merging correctness risks documented.
 - [cheron2000__trading-agent](cheron2000__trading-agent.md) — Seven-layer AI Trading OS; documents fail-open Alpaca risk checks, partial-fill accounting, Telegram/dashboard access controls, model validation, and metrics limitations.
+- [cheron2000__Demo-Front](cheron2000__Demo-Front.md) — Replit TypeScript monorepo with Space Mission Control visual demo, Express health API, generated OpenAPI client, empty Drizzle schema, and workspace/deployment gaps.
