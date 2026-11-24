@@ -23,3 +23,4 @@ Generated: 2026-11-23
 - [cheron2000__TimeTableExtractor](cheron2000__TimeTableExtractor.md) — FastAPI/openpyxl Excel timetable parser with static frontend; XSS, unauthenticated session/cache APIs, upload limits, and lab-merging correctness risks documented.
 - [cheron2000__trading-agent](cheron2000__trading-agent.md) — Seven-layer AI Trading OS; documents fail-open Alpaca risk checks, partial-fill accounting, Telegram/dashboard access controls, model validation, and metrics limitations.
 - [cheron2000__Demo-Front](cheron2000__Demo-Front.md) — Replit TypeScript monorepo with Space Mission Control visual demo, Express health API, generated OpenAPI client, empty Drizzle schema, and workspace/deployment gaps.
+- [cheron2000__IEEE-Website](cheron2000__IEEE-Website.md) — MMIT IEEE Student Branch full-stack site/CMS; Next.js public pages, Express/MongoDB admin API, JWT refresh sessions, Cloudinary media, and identified config/upload-validation risks.
