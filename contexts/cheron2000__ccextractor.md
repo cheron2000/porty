@@ -6,7 +6,7 @@
 
 `cheron2000/ccextractor` is a large C/C++-ecosystem project repository for **CCExtractor**, a command-line tool that extracts closed captions/subtitles from broadcast recordings and video containers, and converts them into subtitle formats. The README describes real-time extraction, translation, DVD caption extraction, and conversion of closed captions to subtitles.
 
-The repository contains a mature cross-platform build and packaging system, a substantial C implementation, an ongoing Rust migration, OCR/hard-subtitle support, a sample-based C test harness, Rust unit-test workflows, and release automation.
+The repository contains a mature cross-platform build and packaging system, a substantial C implementation, an ongoing Rust migration, OCR/hard-subtitle support, a sample-based C test harness, Rust unit-test workflows, and release automation. The user has contributed upstream: their focused CMake fix for Unix-only linker flags on Windows was merged as PR #2156; their earlier broader Windows build PR #2143 was closed without merge.
 
 **Repository scale observed:** GitHub reports 151,143 KB; the recursive tree contains 1,129 entries. The reviewed source inventory includes 72 C files and 59 header files under `src/lib_ccx/`, plus 85 Rust source/manifest files under `src/rust/`.
 
@@ -28,6 +28,30 @@ The repository contains a mature cross-platform build and packaging system, a su
 | License declared in README | GPL-2.0 |
 
 The README points to the official CCExtractor project site and says the official repository is `CCExtractor/ccextractor`. The codebase includes substantial bundled third-party code and binary assets.
+
+## 2. User contribution history (verified against upstream PR records)
+
+This is an open-source project where the user has contributed upstream; it should not be framed as merely a repository they own or maintain. The user's GitHub account `cheron2000` has this verified contribution trail:
+
+### Merged fix — PR #2156
+
+- **PR:** [cmake: guard Unix-only linker flags on non-Windows platforms](https://github.com/CCExtractor/ccextractor/pull/2156)
+- **Status:** Merged on 2026-03-01.
+- **Bug addressed:** CMake passed Unix-specific linker flags (`-lm`, `-lpthread`, `-ldl`) into Windows builds. These libraries are not available under Windows toolchains and can produce linker warnings or failures.
+- **Fix:** Guard the Unix-only linker flags so they are applied only on non-Windows platforms.
+- **Context:** This was a focused follow-up requested by maintainer feedback on PR #2143. This is the user's verified merged upstream fix.
+
+### Earlier broader Windows build PR — #2143
+
+- **PR:** [Fix Windows build: MSVC CRT and GPAC linking](https://github.com/CCExtractor/ccextractor/pull/2143)
+- **Status:** Closed without merge on 2026-03-01.
+- **Scope:** Proposed consistent dynamic MSVC CRT (/MD) settings across C/C++/Rust targets, GPAC include/library path corrections, and platform-specific linker configuration.
+- **Verification stated in the PR:** Windows build completed with Visual Studio 2022/CMake 3.31+, executable version output worked, and Linux/macOS builds were expected to remain unaffected.
+- **Outcome:** Maintainer feedback led to the narrower, separate #2156 fix. Do not describe #2143 as merged.
+
+### Attribution distinction
+
+PR #2147, which fixed the MSVC Debug invalid-free issue reported in #2126, is authored under a different GitHub account (`Atul-Chahar`), not `cheron2000`. It should not be attributed to the user. The user also previously submitted a documentation spelling cleanup across `tests/README.md` and several source comments/docs; the retrieved history does not establish that this earlier documentation PR was merged.
 
 ## 3. Product purpose and capabilities
 
