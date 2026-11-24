@@ -24,3 +24,4 @@ Generated: 2026-11-23
 - [cheron2000__trading-agent](cheron2000__trading-agent.md) — Seven-layer AI Trading OS; documents fail-open Alpaca risk checks, partial-fill accounting, Telegram/dashboard access controls, model validation, and metrics limitations.
 - [cheron2000__Demo-Front](cheron2000__Demo-Front.md) — Replit TypeScript monorepo with Space Mission Control visual demo, Express health API, generated OpenAPI client, empty Drizzle schema, and workspace/deployment gaps.
 - [cheron2000__IEEE-Website](cheron2000__IEEE-Website.md) — MMIT IEEE Student Branch full-stack site/CMS; Next.js public pages, Express/MongoDB admin API, JWT refresh sessions, Cloudinary media, and identified config/upload-validation risks.
+- [cheron2000__PS2](cheron2000__PS2.md) — SIH26142 Sentinel-2 super-resolution research prototype; PyTorch model, uncertainty head, geospatial/data adapters, evaluation protocol, and real-data validation gaps.
